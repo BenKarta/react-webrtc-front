@@ -12,7 +12,7 @@ function CallScreen() {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-
+//ec2-54-168-239-171.ap-northeast-1.compute.amazonaws.com
   // const socketUrl ="http://localhost:5004/";
   const socketUrl ="ec2-54-168-239-171.ap-northeast-1.compute.amazonaws.com:8080";
   const socket = socketio(socketUrl, {
@@ -66,29 +66,29 @@ function CallScreen() {
 
   const createPeerConnection = () => {
     try {
-      // pc = new RTCPeerConnection({});
-      pc = new RTCPeerConnection({
-        iceServers: [
-          {
-            urls: "stun:openrelay.metered.ca:80",
-          },
-          {
-            urls: "turn:openrelay.metered.ca:80",
-            username: "openrelayproject",
-            credential: "openrelayproject",
-          },
-          {
-            urls: "turn:openrelay.metered.ca:443",
-            username: "openrelayproject",
-            credential: "openrelayproject",
-          },
-          {
-            urls: "turn:openrelay.metered.ca:443?transport=tcp",
-            username: "openrelayproject",
-            credential: "openrelayproject",
-          },
-        ],
-      });
+      pc = new RTCPeerConnection({});
+      // pc = new RTCPeerConnection({
+      //   iceServers: [
+      //     {
+      //       urls: "stun:openrelay.metered.ca:80",
+      //     },
+      //     {
+      //       urls: "turn:openrelay.metered.ca:80",
+      //       username: "openrelayproject",
+      //       credential: "openrelayproject",
+      //     },
+      //     {
+      //       urls: "turn:openrelay.metered.ca:443",
+      //       username: "openrelayproject",
+      //       credential: "openrelayproject",
+      //     },
+      //     {
+      //       urls: "turn:openrelay.metered.ca:443?transport=tcp",
+      //       username: "openrelayproject",
+      //       credential: "openrelayproject",
+      //     },
+      //   ],
+      // });
       pc.onicecandidate = onIceCandidate;
       pc.ontrack = onTrack;
       const localStream = localVideoRef.current.srcObject;
