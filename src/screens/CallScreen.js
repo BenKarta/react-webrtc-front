@@ -66,29 +66,16 @@ function CallScreen() {
 
   const createPeerConnection = () => {
     try {
-      pc = new RTCPeerConnection({});
-      // pc = new RTCPeerConnection({
-      //   iceServers: [
-      //     {
-      //       urls: "stun:openrelay.metered.ca:80",
-      //     },
-      //     {
-      //       urls: "turn:openrelay.metered.ca:80",
-      //       username: "openrelayproject",
-      //       credential: "openrelayproject",
-      //     },
-      //     {
-      //       urls: "turn:openrelay.metered.ca:443",
-      //       username: "openrelayproject",
-      //       credential: "openrelayproject",
-      //     },
-      //     {
-      //       urls: "turn:openrelay.metered.ca:443?transport=tcp",
-      //       username: "openrelayproject",
-      //       credential: "openrelayproject",
-      //     },
-      //   ],
-      // });
+      pc = new RTCPeerConnection({
+        iceServers: [
+          {
+            urls: "stun2.l.google.com:19302",
+          },
+          {
+            urls: "stun4.l.google.com:19302",
+          },
+        ],
+      });
       pc.onicecandidate = onIceCandidate;
       pc.ontrack = onTrack;
       const localStream = localVideoRef.current.srcObject;
