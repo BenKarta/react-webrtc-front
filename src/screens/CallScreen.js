@@ -66,28 +66,29 @@ function CallScreen() {
 
   const createPeerConnection = () => {
     try {
-      pc = new RTCPeerConnection({
-        iceServers: [
-            {
-              urls: "stun:relay.metered.ca:80",
-            },
-            {
-              urls: "turn:relay.metered.ca:80",
-              username: "256079649c3e90bd20a02c12",
-              credential: "oh6jc4Vvzp5c3It6",
-            },
-            {
-              urls: "turn:relay.metered.ca:443",
-              username: "256079649c3e90bd20a02c12",
-              credential: "oh6jc4Vvzp5c3It6",
-            },
-            {
-              urls: "turn:relay.metered.ca:443?transport=tcp",
-              username: "256079649c3e90bd20a02c12",
-              credential: "oh6jc4Vvzp5c3It6",
-            },
-        ],
-      });
+      pc = new RTCPeerConnection({});
+      // pc = new RTCPeerConnection({
+      //   iceServers: [
+      //       {
+      //         urls: "stun:relay.metered.ca:80",
+      //       },
+      //       {
+      //         urls: "turn:relay.metered.ca:80",
+      //         username: "256079649c3e90bd20a02c12",
+      //         credential: "oh6jc4Vvzp5c3It6",
+      //       },
+      //       {
+      //         urls: "turn:relay.metered.ca:443",
+      //         username: "256079649c3e90bd20a02c12",
+      //         credential: "oh6jc4Vvzp5c3It6",
+      //       },
+      //       {
+      //         urls: "turn:relay.metered.ca:443?transport=tcp",
+      //         username: "256079649c3e90bd20a02c12",
+      //         credential: "oh6jc4Vvzp5c3It6",
+      //       },
+      //   ],
+      // });
       pc.onicecandidate = onIceCandidate;
       pc.ontrack = onTrack;
       const localStream = localVideoRef.current.srcObject;
